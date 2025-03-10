@@ -1,0 +1,36 @@
+import React from 'react';
+
+function DataList({ dados, onEdit }) {
+    return (
+        <div className="data-list">
+            <h2>Lista de Funcionários Fiscais</h2>
+            <table className="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {dados.map((funcionario) => (
+                        <tr key={funcionario.id_resp_fiscal}>
+                            <td>{funcionario.id_resp_fiscal}</td>
+                            <td>{funcionario.nome_resp_fiscal}</td>
+                            <td>
+                                <button 
+                                    onClick={() => onEdit(funcionario)}
+                                    className="edit-button"
+                                >
+                                    Editar
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+}
+
+export default DataList;

@@ -1,0 +1,42 @@
+import React, { useState, useEffect } from 'react';
+
+function DataForm({ onSubmit, editDado }) {
+    const [nome, setNome] = useState('');
+
+    useEffect(() => {
+        if (editDado) {
+            setNome(editDado.nome_resp_fiscal);
+        }
+    }, [editDado]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (editDado) {
+            onSubmit(editDado.id_resp_fiscal, { nome_resp_fiscal: nome });
+        } else {
+            onSubmit({ nome_resp_fiscal: nome });
+        }
+        setNome('');
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <div className="form-group">
+                <label>Nome do Funcionário Fiscal:</label>
+                <input
+                    type="text"
+                    value={nome}
+                    onChange={(e) => setNome(e.target.value)}
+                    placeholder="Digite o nome do funcionário"
+                    required
+                    className="form-input"
+                />
+            </div>
+            <button type="submit" className="submit-button">
+                {editDado ? 'Atualizar Funcionário' : 'Adicionar Funcionário'}
+            </button>
+        </form>
+    );
+}
+
+export default DataForm;

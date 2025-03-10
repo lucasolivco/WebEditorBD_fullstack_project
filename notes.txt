@@ -1,0 +1,12 @@
+filtro
+paginação
+responsivo até certo ponto
+modal para edição
+tratamento para PKs e FKs
+adição
+edição
+reconhece todas tabelas, valores e tipos das colunas do db
+
+para criação de novas tabelas* A requisição será feita aos administradores do banco
+para criação de novas colunas* A requisição será feita aos administradores do banco
+para excluir qualquer tipo de registro* A requisição será feita aos administradores do banco
